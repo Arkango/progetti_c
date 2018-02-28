@@ -16,6 +16,8 @@ int main()
     {
         puts("\n 0 per sommare un prodotto\n");
         puts("\n 1 per terminare il programma\n");
+
+        scanf("%d",&scelta);
         
         switch (scelta)
         {
