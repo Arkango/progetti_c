@@ -47,6 +47,9 @@ int main()
 
     do
     {
+        printf("Scelta operazioni da eseguire\n");
+        printf("0 mostra tutti\t 1 accredito su conto \t 2 addebito su conto \t 3mostra saldo su conto");
+        scanf("%d", &scelta);
         switch (scelta)
         {
         case 0: //stampa tutte le info dei conti
