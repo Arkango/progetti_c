@@ -11,6 +11,9 @@
 
 #define MAX 100
 
+typedef enum { FALSE,
+               TRUE } boolean;
+
 typedef struct PersonaS
 {
     int num_conto;
@@ -21,8 +24,10 @@ typedef struct PersonaS
 
 int main()
 {
-    persona conti[MAX];                //conterrà tutti i conti correnti creati
-    unsigned int scelta = 1, i = 0, k; //conterrà il valore dell'operazione selezionata,contatore,contatore;
+    float importo;                                       //importo da addebitare o accreditare
+    boolean flag = 0;                                    //sentinella per la ricerca
+    persona conti[MAX];                                  //conterrà tutti i conti correnti creati
+    unsigned int scelta = 1, i = 0, k, conto_scelto = 0; //conterrà il valore dell'operazione selezionata,contatore,contatore,conto scelta per la ricerca;
 
     do
     { //acquisizione conti
@@ -40,23 +45,83 @@ int main()
         scanf("%d", &scelta);
     } while (scelta != 0 && i < MAX);
 
-    scelta = 1;
-
     do
     {
         switch (scelta)
         {
-        case 0:
+        case 0: //stampa tutte le info dei conti
+            for (k = 0; k < i; k++)
+            {
+                printf("info del conto %u\n", k + 1);
+                printf("numero conto %d\n", conti[k].num_conto);
+                printf("intestatario conto %s %s\n", conti[k].nome, conti[k].cognome);
+                printf("saldo %.2f\n", conti[k].saldo);
+            }
             break;
-        case 1:
+        case 1: //accredito su conto
+            printf("\n Inserire numero conto\n");
+            scanf("%u", &conto_scelto);
+            for (k = 0; k < i && flag == 0; k++)
+            {
+                if (conti[k].num_conto == conto_scelto)
+                {
+                    flag = 1;
+                    printf("\n Inserire importo da accreditare\n");
+                    scanf("%f", &importo);
+                    if (importo > 0)
+                    {
+                        conti[k].saldo += importo;
+                    }
+                    else
+                    {
+                        printf("\nimporto inserito non valido\n");
+                    }
+                }
+            }
+            if(flag == 0) printf("Conto cercato non valido");
             break;
-        case 2:
+        case 2: //addebito su conto
+            printf("\n Inserire numero conto\n");
+            scanf("%u", &conto_scelto);
+            for (k = 0; k < i && flag == 0; k++)
+            {
+                if (conti[k].num_conto == conto_scelto)
+                {
+                    flag = 1;
+                    printf("\n Inserire importo da addebitare\n");
+                    scanf("%f", &importo);
+                    if (importo > 0)
+                    {
+                        conti[k].saldo -= importo;
+                    }
+                    else
+                    {
+                        printf("\nimporto inserito non valido\n");
+                    }
+                }
+            }
+            if(flag == 0) printf("Conto cercato non valido");
             break;
-        case 3:
+        case 3: //mostro saldo
+            printf("\n Inserire numero conto\n");
+            scanf("%u", &conto_scelto);
+            for (k = 0; k < i && flag == 0; k++)
+            {
+                if (conti[k].num_conto == conto_scelto)
+                {
+                    printf("\nsaldo %.2f \n",conti[k].saldo);
+                }
+            }
+            if(flag == 0) printf("Conto cercato non valido");
+            break;
+        case 4: //esco
+            break;
+        default:
+            printf("opzione non riconosciuta\n");
             break;
         }
 
-    } while (scelta != 0);
+    } while (scelta != 4);
 
     return 0;
 }
