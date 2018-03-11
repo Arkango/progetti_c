@@ -48,8 +48,9 @@ int main()
     do
     {
         printf("Scelta operazioni da eseguire\n");
-        printf("0 mostra tutti\t 1 accredito su conto \t 2 addebito su conto \t 3mostra saldo su conto");
+        printf("0 mostra tutti\t 1 accredito su conto \t 2 addebito su conto \t 3 mostra saldo su conto\n");
         scanf("%d", &scelta);
+        flag =0 ; //resetto il flag
         switch (scelta)
         {
         case 0: //stampa tutte le info dei conti
@@ -112,6 +113,7 @@ int main()
             {
                 if (conti[k].num_conto == conto_scelto)
                 {
+                    flag =1;
                     printf("\nsaldo %.2f \n",conti[k].saldo);
                 }
             }
