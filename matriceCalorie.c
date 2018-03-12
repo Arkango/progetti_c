@@ -35,11 +35,10 @@ void fillMatrix(float calorie[ROWS][COLUMNS]){
     printf("Inserire dati persona n. %d\n",i+1 );
     for (j = 0; j < COLUMNS; j++) {
       printf("Calorie del giorno %d\n",j+1 );
-      scanf("%f\n",&calorie[i][j] );
+      scanf("%f",&calorie[i][j] );
       if(MAX_TOT < calorie[i][j] ){ MAX_TOT = calorie[i][j]; } //massimo della matrice
       if(MAX_PEOPLE[i] < calorie[i][j] ){ MAX_PEOPLE[i] = calorie[i][j]; }//massimo per singola persona
     }
-
   }
 }
 
