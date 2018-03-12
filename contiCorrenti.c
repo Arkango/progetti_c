@@ -2,8 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-/* 
-    programma per la gestione di conti correnti 
+/*
+    programma per la gestione di conti correnti
     con operazioni di info, prelievo ed accredito
     Author : Arcangelo Saracino
     Date : 11/03/2018
@@ -48,7 +48,7 @@ int main()
     do
     {
         printf("Scelta operazioni da eseguire\n");
-        printf("0 mostra tutti\t 1 accredito su conto \t 2 addebito su conto \t 3 mostra saldo su conto\n");
+        printf("0 mostra tutti\t 1 accredito su conto \t 2 addebito su conto \t 3 mostra saldo su conto\n \n 4 esci");
         scanf("%d", &scelta);
         flag =0 ; //resetto il flag
         switch (scelta)
