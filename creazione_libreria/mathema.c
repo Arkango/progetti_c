@@ -38,6 +38,7 @@ float avg(int num_1, int num_2)
 
 float val_absolute(float num_1)
 {
+    printf("%f",num_1);
 
     if (num_1 == 0){
         return 0;

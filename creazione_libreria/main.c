@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "mathema.h"
 
+
 int main()
 {
     int scelta = 0; //conterrà il valore dell'operazione selezionata;
@@ -26,7 +27,7 @@ int main()
         {
             //acquisizione operandi
             printf("Inserire il  valore sul quale operare \n");
-            scanf("%d", &inputSpeciale);
+            scanf("%f", &inputSpeciale);
         }
 
         switch (scelta)
@@ -55,7 +56,7 @@ int main()
         case 6:
             printf("Media fra i due numeri:  %f ", avg(primoInput, secondoInput));
             break;
-        case 7:
+  case 7:
             printf("Valore assoluto:  %f ", val_absolute(inputSpeciale));
             break;
         case 8:
