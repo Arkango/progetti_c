@@ -1,3 +1,4 @@
+#include <stdio.h>
 
 int min(int num_1, int num_2)
 {
@@ -38,13 +39,22 @@ float avg(int num_1, int num_2)
 
 float val_absolute(float num_1)
 {
-    printf("%f",num_1);
 
-    if (num_1 == 0){
+    if (num_1 == 0)
+    {
+
+        printf("0\n");
+
         return 0;
-    }else if(num_1 > 0){
-        return num_1;
-    }else{
-        return num_1*-1;
+    }
+    else if (num_1 > 0)
+    {
+        printf("%f\n", num_1);
+        return 0;
+    }
+    else
+    {
+        printf("%f\n", num_1 * -1);
+        return 0;
     }
 }
