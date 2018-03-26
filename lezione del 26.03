@@ -31,4 +31,14 @@ calcolo dim struct , multipli di 4 byte
 
 un valore di un puntatore può essere modificato anche semplicemente rendendolo costante
 
-puntatori a funzioni 
+puntatore ad array
+
+int array[10]
+int* p_array;
+
+p_array = &array[0];
+p_array = array;
+
+
+
+puntatori a funzioni
