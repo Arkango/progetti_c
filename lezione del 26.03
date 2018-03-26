@@ -2,16 +2,24 @@ Puntatori :
 nome, tipo , locazione di memoria.
 
 non abbiamo il completo controllo dei valori assumibili da un puntatore (dipende dai range di valori messi a disposizione dal os al loader del c) . Valori espressi in esadecimale .
+---------------------------------------------------
+si definisce con :
 
-si definisce con 
-
-type * name_varibale ;
-
-int *myPointer;
-
+type *name_varibale ; //esempio
+int *myPointer; //implementazione
+--------------------------------------------------
 attraverso l'operatore cast si forza una varibile ad assumere valori di un altro tipo.
 i possibili valori sono 0, NULL, indirizzo di mem.
 
+inizializzione : meglio inizializzarlo a NULL, per evitare incongruenze.
 
+operatori 
+
+* puntatore
+& referenziazione
+
+scanf richiede come lista di parametri indirizzi
+
+//guardare slide dei Puntatori 
 
 
