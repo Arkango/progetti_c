@@ -39,6 +39,10 @@ int* p_array;
 p_array = &array[0];
 p_array = array;
 
+aritmetica dei puntatori fortemente sconsigliata , perchè alle volte non si conosce il tipo di dato all'interno dell'array quindi potremmo sbagliare a sommare le locazioni di memoria da sommare o sottrarre.
 
+utilizzo del sizeof(type name)
+
+es: arrayPointer += i * sizeof(int var)
 
 puntatori a funzioni
