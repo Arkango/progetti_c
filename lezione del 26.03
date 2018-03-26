@@ -13,20 +13,22 @@ i possibili valori sono 0, NULL, indirizzo di mem.
 
 inizializzione : meglio inizializzarlo a NULL, per evitare incongruenze.
 
-operatori 
+operatori
 
 * puntatore
 & referenziazione
 
 scanf richiede come lista di parametri indirizzi
 
-//guardare slide dei Puntatori 
+//guardare slide dei Puntatori
 
 funzione astratta deve eseguire un'espressione aritmetica, prendersene il valore , senza modificare lo stato delle varibili;
 
-non collide con il passaggio per riferimento 
+non collide con il passaggio per riferimento
 
 
 calcolo dim struct , multipli di 4 byte
 
+un valore di un puntatore può essere modificato anche semplicemente rendendolo costante
 
+puntatori a funzioni 
