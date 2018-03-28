@@ -1,0 +1,10 @@
+acquisizione delle stringhe terminano al primo spazio
+
+ci sono escamotage per avere stringhe con spazi
+
+è possibile definire %9s per acquisire solo i primi 9 caratteri in input
+
+libreria ampia per elaborazioni di caratteri e stringhe 
+
+attenzione al fine stringa \0
+
