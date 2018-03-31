@@ -1,4 +1,4 @@
-#include <stdio.h>
+
 
 int min(int num_1, int num_2)
 {
