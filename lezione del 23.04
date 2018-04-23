@@ -19,3 +19,17 @@ tesi di dijkstra (se il programma non produce errori non significa che non esist
 tesi di howden (non è possibile produrre un programma che produca tutti i casi test)
 
 
+test funzionale black box
+
+    valuntandone l'output senza entrare nel merito
+
+test strutturale white box
+
+    verifica la correttezza del programma valutando la strutturazione del codice sorgente
+
+balck box 
+
+    verificare delle condizioni limite
+    definizioni delle classi di equivalenza
+    random guessing (valori a caso)
+
