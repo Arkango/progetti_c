@@ -108,10 +108,12 @@ void count_word(char stringaInput[], counterWORD as[])
             }
             strcpy(as[pos].word, ch);
             as[pos].times = 1;
-            //Controlliamo se è un nome
+            
+            //Controlliamo se è un nome, basta controllare il primo carattere
             if(isupper(ch[0])){
                 as[pos].name = 1;
             }
+            
         }
         ch = strtok(NULL, " ,");
     }
