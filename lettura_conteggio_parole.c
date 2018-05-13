@@ -108,22 +108,12 @@ void count_word(char stringaInput[], counterWORD as[])
             }
             strcpy(as[pos].word, ch);
             as[pos].times = 1;
-        }
-
-        /* questo è un nome ?*/
-        flag = 0;
-        i = 0;
-        while (i < strlen(ch) && flag == 0)
-        {
-            if (isupper(ch[i]))
-            {
-                flag = 1;
+            
+            //Controlliamo se è un nome, basta controllare il primo carattere
+            if(isupper(ch[0])){
+                as[pos].name = 1;
             }
-            i++;
-        }
-        if (flag == 1)
-        {
-            as[i].name = 1;
+            
         }
         ch = strtok(NULL, " ,");
     }
@@ -159,10 +149,10 @@ void sort(counterWORD values[], int n)
 
 void write_word(counterWORD count_word_array[])
 {
-    int i, counter = 0;
+    int i;
     FILE *file;
     file = fopen("max_parole.txt", "wb+");
-    for (int i = 99; i > 96; i--)
+    for (i = 99; i > 96; i--)
     {
         fwrite(count_word_array[i].word, 1, sizeof(count_word_array[i].word), file);
     }
