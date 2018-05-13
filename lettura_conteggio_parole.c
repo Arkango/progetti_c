@@ -15,23 +15,24 @@
  * 1 mostra i conteggi effetuati
  */
 
-typedef struct {
+typedef struct
+{
     char word[100];
     int times;
+    int name;
 } counterWORD;
 
-
-int names[] = {};
-
-void count_word(char string[],counterWORD as[]);
-void sort(int values[], int n);
-void write_word(int count_word_array[]);
+void count_word(char stringaInput[], counterWORD as[]);
+void sort(counterWORD values[], int n);
+void write_word(counterWORD count_word_array[]);
 
 int main()
 {
-    int scelta = 0, flag = 1;
+    int scelta = 0, flag = 1, i;
+    char array[1000];
     char *stringaInput;
-    counterWORD count_word_array[100];
+    stringaInput = array;
+    counterWORD count_word_array[100] = {" ", 0, 0};
 
     while (flag)
     { //cilco che ripropone il menu
@@ -40,19 +41,30 @@ int main()
         printf("0 inserisci stringa \n1 termina e visualizza conteggi\n");
         scanf("%d", &scelta);
 
-        switch ((int) scelta)
+        switch (scelta)
         {
         case 0:
             printf("inserisci stringa\n");
 
             scanf(" %[^\t\n]s", stringaInput);
-            //count_word(stringaInput[0],count_word_array);
-            //printf("%s",stringaInput);
+            count_word(stringaInput, count_word_array);
+
             break;
         case 1:
             printf("conteggi\n");
-            //sort(count_word_array, (int)sizeof(count_word_array));
-            //write_word(count_word_array);
+            sort(count_word_array, sizeof(count_word_array));
+            write_word(count_word_array);
+            for (i = 99; i > 96; i--)
+            {
+                printf("%s %d volte\n", count_word_array[i].word, count_word_array[i].times);
+            }
+            for (i = 0; i < 100; i++)
+            {
+                if (count_word_array[i].name == 1)
+                {
+                    printf("%s e' un nome\n", count_word_array[i].word);
+                }
+            }
             flag = 0;
             break;
         default:
@@ -62,70 +74,97 @@ int main()
     return 0;
 } //fine main
 
-void count_word(char string[], counterWORD as[])
+void count_word(char stringaInput[], counterWORD as[])
 {
     char *ch;
-    int i,flag;
+    int i, flag, pos;
+    //char stringaInput[100] = "rtgjh saderrgrtgn saderrgrtgn  rtgjh saderrgrtgn rtfyhkj dejhdfgh";
 
-    ch = strtok(string, " ");
+    ch = strtok(stringaInput, " ");
+
     while (ch != NULL)
     {
-
+        //printf("%s\n", ch);
         flag = 0;
-        for(i = 0; i < 500; i++){
-            if(strcmp(as[i].word,ch) == 0){
-                as[i].times ++;
-                flag = i;
+        for (i = 0; i < 100; i++)
+        {
+            if (strcmp(as[i].word, ch) == 0)
+            {
+                as[i].times++;
+                flag = 1;
             }
         }
-        if(flag == 0){
-           printf("mancante");
-            //as[i].word = ch;
-            //as[i].times = 1;
+
+        if (flag == 0)
+        {
+            for (i = 0; i < 100; i++)
+            {
+
+                if (as[i].times == 0)
+                {
+                    pos = i;
+                    break;
+                }
+            }
+            strcpy(as[pos].word, ch);
+            as[pos].times = 1;
         }
-        
 
-       /* questo è un nome ?*/
-
-        //while(i < strlen(ch) && flag == 0){
-        //if(isupper(ch[i])){flag = 1;}
-        //}
-        //if(flag){
-        //da fare allocazione dinamica con puntatore
-        //size = sizeof(names);
-        //printf("%d",size);
-        //names[size++] = atoi(ch);
-        //}
+        /* questo è un nome ?*/
+        flag = 0;
+        i = 0;
+        while (i < strlen(ch) && flag == 0)
+        {
+            if (isupper(ch[i]))
+            {
+                flag = 1;
+            }
+            i++;
+        }
+        if (flag == 1)
+        {
+            as[i].name = 1;
+        }
         ch = strtok(NULL, " ,");
     }
 }
 
-void sort(int values[], int n)
+void sort(counterWORD values[], int n)
 {
-    for (int i = 0; i < n; i++)
+
+    for (int i = 0; i < 100; i++)
     {
-        for (int j = 0; j < (n - i - 1); j++)
+        for (int j = 0; j < (100 - i - 1); j++)
         {
-            if (values[j] > values[j + 1])
+            if (values[j].times > values[j + 1].times)
             {
-                int bubble = values[j];
-                values[j] = values[j + 1];
-                values[j + 1] = bubble;
+                int bubble = values[j].times;
+                values[j].times = values[j + 1].times;
+                values[j + 1].times = bubble;
+
+                int name = values[j].name;
+                values[j].name = values[j + 1].name;
+                values[j + 1].name = name;
+
+                char word[100] = "";
+                strcpy(word, values[j].word);
+                strcpy(values[j].word, values[j + 1].word);
+                strcpy(values[j + 1].word, word);
             }
         }
     }
-    //for (int i = 0; i < n; i++) { printf("%i", values[i]); } printf("\n"); // debug
+
+    //for (int i = 0; i < 100; i++) { printf("%s %d\n", values[i].word,values[i].times); } // debug
 }
 
-// void write_word(int count_word_array[])
-// {
-//     int i, counter = 0;
-//     FILE *file;
-//     file = fopen("max_parole.txt", "w");
-//     counter = ((int)sizeof(count_word_array)) - 3;
-//     for (int i = (int)sizeof(count_word_array); i > counter; i--)
-//     {
-//         fwrite(count_word_array[i], 1, sizeof(count_word_array[i]), file);
-//     }
-//     fclose(file);
-// }
+void write_word(counterWORD count_word_array[])
+{
+    int i, counter = 0;
+    FILE *file;
+    file = fopen("max_parole.txt", "wb+");
+    for (int i = 99; i > 96; i--)
+    {
+        fwrite(count_word_array[i].word, 1, sizeof(count_word_array[i].word), file);
+    }
+    fclose(file);
+}
