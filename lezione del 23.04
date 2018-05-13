@@ -1,0 +1,37 @@
+fase di testing 
+
+viene fatta prima del debugging (risoluzione dei bug trovati durante il testing)
+
+Prestazioni : programma deve essere eseguito in tempo accetabile
+
+Usabilità : l'utente interagisce col programma in modo chiaro e adeguato
+
+Portabilità : il programma può essere utilizzato su più macchine
+
+Accettazione : il programma risponde correttamente agli input 
+
+Casi di test
+
+dar in pasto al programma diversi dati in input che potrebbe causare errori logici
+
+tesi di dijkstra (se il programma non produce errori non significa che non esistano ) 
+
+tesi di howden (non è possibile produrre un programma che produca tutti i casi test)
+
+
+test funzionale black box
+
+    valuntandone l'output senza entrare nel merito
+
+test strutturale white box
+
+    verifica la correttezza del programma valutando la strutturazione del codice sorgente
+
+balck box 
+
+    verificare delle condizioni limite
+    definizioni delle classi di equivalenza
+    random guessing (valori a caso)
+
+
+test strutturale ci assicuriamo che tutti i rami del programma vengano eseguiti

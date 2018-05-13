@@ -1,0 +1,1 @@
+void writeON(char pswd[],char level[]);

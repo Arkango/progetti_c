@@ -1,0 +1,13 @@
+allocazione memoria
+
+malloc () , calloc()
+
+ritornano un puntatore al quale va fatto il downcast
+
+
+char *s = (char*) calloc(10,sizeof(char)); //alloca 10 byte
+
+malloc() non libera da solo memoria , usare free()
+
+calloc() libera da solo anche la memoria
+
