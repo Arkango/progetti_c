@@ -113,10 +113,6 @@ void count_word(char stringaInput[], counterWORD as[])
                 as[pos].name = 1;
             }
         }
-
-        /* questo è un nome ?*/
-        flag = 0;
-        i = 0;
         ch = strtok(NULL, " ,");
     }
 }
